@@ -9,6 +9,7 @@ import UIKit
 
 final class ViewController: UIViewController {
 
+    @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var gifsCollectionView: UICollectionView!
     @IBOutlet private weak var tabBarView: UITabBar! {
@@ -22,8 +23,13 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextField()
         setupCollectionView()
         fetchInitialGifs()
+    }
+    
+    private func setupTextField() {
+        searchTextField.delegate = self
     }
     
     private func fetchInitialGifs() {
@@ -62,5 +68,17 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         let width = collectionView.frame.size.width
         let height: CGFloat = 80
         return CGSize(width: width, height: height)
+    }
+}
+
+extension ViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let keyword = textField.text else { return true }
+        viewModel.searchGifs(with: keyword) { [weak self] in
+            self?.gifsCollectionView.reloadData()
+            
+        }
+        textField.resignFirstResponder()
+        return true
     }
 }

@@ -28,4 +28,17 @@ final class Model {
         }
     }
     
+    func searchGifs(with keyword: String, completion: @escaping () -> ()) {
+        AF.request(
+            "https://api.giphy.com/v1/gifs/search",
+            method: .get,
+            parameters: ["api_key": "q6PzU6q7wODFyCS0EplZ0I5EVbDoXk45", "limit": 10, "q": keyword]
+        ).responseDecodable(of: GiphResponse.self) { response in
+            if let response = response.value {
+                self.giphArray = response.data
+                completion()
+            }
+        }
+    }
+    
 }

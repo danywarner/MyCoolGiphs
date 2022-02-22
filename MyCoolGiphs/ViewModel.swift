@@ -17,4 +17,8 @@ struct ViewModel {
     func fetchPopularGifs(completion: @escaping () -> ()) {
         model.fetchPopularGifs(completion: completion)
     }
+    
+    func searchGifs(with keyword: String, completion: @escaping () -> ()) {
+        model.searchGifs(with: keyword, completion: completion)
+    }
 }
