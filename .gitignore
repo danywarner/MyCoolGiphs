@@ -1,0 +1,10 @@
+#Pods
+Pods/
+**/Pods
+*/Pods/
+*/Podfile.lock
+Podfile.lock
+
+MyCoolGiphs.xcworkspace/contents.xcworkspacedata
+MyCoolGiphs.xcworkspace/xcuserdata/*
+MyCoolGiphs.xcworkspace/xcshareddata/*
