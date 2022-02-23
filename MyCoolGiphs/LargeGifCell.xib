@@ -22,13 +22,13 @@
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKo-jE-JQB">
                         <rect key="frame" x="175" y="0.0" width="30" height="30"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="369-3f-2cm"/>
                             <constraint firstAttribute="height" constant="30" id="4lH-7O-6HN"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain"/>
+                        <buttonConfiguration key="configuration" style="plain" image="icons8-pixel-heart-30"/>
                         <connections>
                             <action selector="onFavoriteButtonTap" destination="gTV-IL-0wX" eventType="touchUpInside" id="vMF-Nf-jhN"/>
                         </connections>
@@ -53,8 +53,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="icons8-pixel-heart-30" width="30" height="30"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

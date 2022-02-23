@@ -22,11 +22,11 @@ final class LargeGifCell: UICollectionViewCell {
     
     var isFavorite: Bool? {
         didSet {
-            guard let isFavorite = isFavorite else {
-                return
-            }
+            guard let isFavorite = isFavorite,
+                  let image: UIImage = isFavorite ? UIImage(named: "icons8-heart-30") : UIImage(named: "icons8-pixel-heart-30") else { return }
+            
             print("IDEEE: \(gifImageID) = \(String(isFavorite))")
-            favoriteButton.backgroundColor = isFavorite ? .red : .yellow
+            favoriteButton.setImage(image, for: .normal)
         }
     }
     
