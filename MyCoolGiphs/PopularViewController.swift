@@ -7,17 +7,11 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class PopularViewController: UIViewController {
 
     @IBOutlet private weak var searchTextField: UITextField!
     @IBOutlet private weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var gifsCollectionView: UICollectionView!
-    @IBOutlet private weak var tabBarView: UITabBar! {
-        didSet {
-            tabBarView.backgroundColor = .blue
-            tabBarView.selectedItem = tabBarView.items?.first
-        }
-    }
     
     private var viewModel: ViewModel = ViewModel()
     
@@ -46,7 +40,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension PopularViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.getGifsArray().count
     }
@@ -66,7 +60,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension PopularViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.size.width
         let height: CGFloat = 80
@@ -74,7 +68,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension PopularViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let keyword = textField.text else { return true }
         viewModel.searchGifs(with: keyword) { [weak self] in
