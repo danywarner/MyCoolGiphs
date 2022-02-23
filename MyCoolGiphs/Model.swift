@@ -9,13 +9,16 @@ import Alamofire
 
 final class Model {
     
+    private var storageManager = StorageManager()
+    private var giphArray: [GiphEntity] = []
+    
     func getGifsArray() -> [GiphEntity] {
         giphArray
     }
     
-    private var giphArray: [GiphEntity] = []
-    
     func fetchPopularGifs(completion: @escaping () -> ()) {
+        storageManager.getFavoriteGifsFromStorage()
+        
         AF.request(
             "https://api.giphy.com/v1/gifs/trending",
             method: .get,
@@ -41,4 +44,18 @@ final class Model {
         }
     }
     
+}
+
+extension Model {
+    func toggleFavorite(gifID: String) {
+        guard var gif = giphArray.first(where: { $0.id == gifID }) else {
+            print("ERROR: gif id not found")
+            return
+        }
+        gif.isFavorite.toggle()
+        
+        if gif.isFavorite {
+            storageManager.writeToStorage(identifier: gif.id, object: gif)
+        }
+    }
 }

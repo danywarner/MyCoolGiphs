@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ViewModel {
+class ViewModel {
     var model = Model()
     
     func getGifsArray() -> [GiphEntity] {
@@ -20,5 +20,11 @@ struct ViewModel {
     
     func searchGifs(with keyword: String, completion: @escaping () -> ()) {
         model.searchGifs(with: keyword, completion: completion)
+    }
+}
+
+extension ViewModel: GifCellDelegate {
+    func toggleFavorite(gifID: String) {
+        model.toggleFavorite(gifID: gifID)
     }
 }

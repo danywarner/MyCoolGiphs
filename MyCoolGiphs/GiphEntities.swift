@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct GiphImage: Decodable {
+struct GiphImage: Codable {
     var width: String
     var height: String
     var url: String
 }
 
-struct GiphImageContainer: Decodable {
+struct GiphImageContainer: Codable {
     var original: GiphImage?
     var downsized: GiphImage?
     var fixedHeightDownsampled: GiphImage?
@@ -32,12 +32,28 @@ struct GiphImageContainer: Decodable {
     }
 }
 
-struct GiphEntity: Decodable {
+struct GiphEntity: Codable {
     var id: String
     var title: String
     var images: GiphImageContainer
+    var isFavorite: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case images
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        images = try container.decode(GiphImageContainer.self, forKey: .images)
+        isFavorite = false
+        
+    }
 }
 
-struct GiphResponse: Decodable {
+struct GiphResponse: Codable {
     var data: [GiphEntity]
 }

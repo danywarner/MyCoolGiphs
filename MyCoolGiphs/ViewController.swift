@@ -57,7 +57,10 @@ extension ViewController: UICollectionViewDataSource {
         }
         let gifsArray = viewModel.getGifsArray()
         let downsizedImage = gifsArray[indexPath.row].images.fixedHeightDownsampled
+        cell.gifImageID = gifsArray[indexPath.row].id
+        cell.isFavorite = gifsArray[indexPath.row].isFavorite
         cell.gifImageViewUrl = downsizedImage?.url
+        cell.delegate = viewModel
         
         return cell
     }
