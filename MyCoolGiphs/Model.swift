@@ -11,14 +11,25 @@ final class Model {
     
     private var storageManager = StorageManager()
     private var giphArray: [GiphEntity] = []
+    private var favoritesGiphArray: [GiphEntity] = []
     
-    func getGifsArray() -> [GiphEntity] {
+    var numberOfPopularGifs: Int {
+        giphArray.count
+    }
+    
+    var numberOfFavoriteGifs: Int {
+        favoritesGiphArray.count
+    }
+    
+    func getPopularGifsArray() -> [GiphEntity] {
         giphArray
     }
     
+    func getFavoriteGifsArray() -> [GiphEntity] {
+        favoritesGiphArray
+    }
+    
     func fetchPopularGifs(completion: @escaping () -> ()) {
-        storageManager.getFavoriteGifsFromStorage()
-        
         AF.request(
             "https://api.giphy.com/v1/gifs/trending",
             method: .get,
@@ -42,6 +53,10 @@ final class Model {
                 completion()
             }
         }
+    }
+    
+    func loadFavoriteGifs() {
+        favoritesGiphArray = storageManager.getFavoriteGifsFromStorage()
     }
     
 }

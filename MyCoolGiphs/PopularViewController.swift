@@ -42,14 +42,14 @@ final class PopularViewController: UIViewController {
 
 extension PopularViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.getGifsArray().count
+        viewModel.numberOfPopularGifs
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LargeGifCell", for: indexPath) as? LargeGifCell else {
             return UICollectionViewCell()
         }
-        let gifsArray = viewModel.getGifsArray()
+        let gifsArray = viewModel.getPopularGifsArray()
         let downsizedImage = gifsArray[indexPath.row].images.fixedHeightDownsampled
         cell.gifImageID = gifsArray[indexPath.row].id
         cell.isFavorite = gifsArray[indexPath.row].isFavorite

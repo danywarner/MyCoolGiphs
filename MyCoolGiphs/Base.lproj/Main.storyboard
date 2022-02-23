@@ -48,6 +48,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" image="icons8-star-30" id="ntJ-pQ-tfN"/>
+                    <connections>
+                        <outlet property="favoritesCollectionView" destination="QeY-zY-pIl" id="Tdb-ka-2pq"/>
+                        <outlet property="segmentedControl" destination="UQb-Lq-yf3" id="ZKB-cl-ECR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dxc-zJ-6mw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

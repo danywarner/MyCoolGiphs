@@ -10,8 +10,16 @@ import Foundation
 class ViewModel {
     var model = Model()
     
-    func getGifsArray() -> [GiphEntity] {
-        model.getGifsArray()
+    var numberOfPopularGifs: Int {
+        model.numberOfPopularGifs
+    }
+    
+    var numberOfFavoriteGifs: Int {
+        model.numberOfFavoriteGifs
+    }
+    
+    func getPopularGifsArray() -> [GiphEntity] {
+        model.getPopularGifsArray()
     }
     
     func fetchPopularGifs(completion: @escaping () -> ()) {
@@ -20,6 +28,14 @@ class ViewModel {
     
     func searchGifs(with keyword: String, completion: @escaping () -> ()) {
         model.searchGifs(with: keyword, completion: completion)
+    }
+    
+    func loadFavoriteGifs() {
+        model.loadFavoriteGifs()
+    }
+    
+    func getFavoriteGifsArray() -> [GiphEntity] {
+        model.getFavoriteGifsArray()
     }
 }
 

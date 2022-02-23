@@ -62,16 +62,17 @@ final class StorageManager {
         }
     }
     
-    func getFavoriteGifsFromStorage() {
+    func getFavoriteGifsFromStorage() -> [GiphEntity] {
         do {
             let fileURLS = try readAllFromStorage()
             let favoriteIds = fileURLS.map { $0.lastPathComponent }
             let favoriteGifs = favoriteIds.compactMap { favoriteId in
                 return readFromStorage(identifier: favoriteId)
             }
-            print(favoriteIds)
+            return favoriteGifs
         } catch {
             print("NO FILES IN STORAGE")
         }
+        return []
     }
 }
