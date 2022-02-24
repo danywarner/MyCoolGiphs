@@ -6,7 +6,11 @@
 //
 
 protocol GifCellDelegate: AnyObject {
-    func toggleFavorite(gifID: String)
+    func toggleFavorite(gifID: String, completion: @escaping () -> ())
+}
+
+protocol GifCellReloadable: AnyObject {
+    func reloadGifsCollectionView()
 }
 
 import UIKit
@@ -17,6 +21,7 @@ final class LargeGifCell: UICollectionViewCell {
     @IBOutlet private weak var gifImageView: UIImageView!
     
     weak var delegate: GifCellDelegate?
+    weak var reloadDelegate: GifCellReloadable?
     
     var gifImageID: String?
     
@@ -24,8 +29,6 @@ final class LargeGifCell: UICollectionViewCell {
         didSet {
             guard let isFavorite = isFavorite,
                   let image: UIImage = isFavorite ? UIImage(named: "icons8-heart-30") : UIImage(named: "icons8-pixel-heart-30") else { return }
-            
-            print("IDEEE: \(gifImageID) = \(String(isFavorite))")
             favoriteButton.setImage(image, for: .normal)
         }
     }
@@ -44,11 +47,10 @@ final class LargeGifCell: UICollectionViewCell {
             return
         }
         isFavorite?.toggle()
-        delegate?.toggleFavorite(gifID: gifImageID)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        backgroundColor = .yellow
+        delegate?.toggleFavorite(gifID: gifImageID) { [weak self] in
+            if !(self?.isFavorite ?? true) {
+                self?.reloadDelegate?.reloadGifsCollectionView()
+            }
+        }
     }
 }

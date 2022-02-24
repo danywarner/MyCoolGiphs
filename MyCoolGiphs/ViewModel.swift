@@ -40,7 +40,7 @@ class ViewModel {
 }
 
 extension ViewModel: GifCellDelegate {
-    func toggleFavorite(gifID: String) {
-        model.toggleFavorite(gifID: gifID)
+    func toggleFavorite(gifID: String, completion: @escaping () -> ()) {
+        model.toggleFavorite(gifID: gifID, completion: completion)
     }
 }

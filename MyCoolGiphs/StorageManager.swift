@@ -19,30 +19,40 @@ final class StorageManager {
         return docURL.appendingPathComponent(key);
     }
     
-    func writeToStorage(identifier: String, object: GiphEntity) {
+    func writeToStorage(identifier: String, object: GiphEntity, completion: @escaping () -> ()) {
         guard let path = filePath(forKey: identifier) else {
             return
         }
         
-        let encoder = JSONEncoder()
-        if let data = try? encoder.encode(object) {
-            do {
-                try data.write(to: path)
-            } catch {
-                print("ERROR writing")
+        DispatchQueue.global(qos: .userInitiated).async {
+            let encoder = JSONEncoder()
+            if let data = try? encoder.encode(object) {
+                do {
+                    try data.write(to: path)
+                    DispatchQueue.main.async {
+                        completion()
+                    }
+                } catch {
+                    print("ERROR writing")
+                }
             }
         }
     }
     
-    func deleteFavoriteFromStorage(identifier: String) {
+    func deleteFavoriteFromStorage(identifier: String, completion: @escaping () -> ()) {
         guard let path = filePath(forKey: identifier) else {
             return
         }
         
-        do {
-            try filemanager.removeItem(at: path)
-        } catch {
-            print("ERROR deleting favorite")
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            do {
+                try self?.filemanager.removeItem(at: path)
+                DispatchQueue.main.async {
+                    completion()
+                }
+            } catch {
+                print("ERROR deleting favorite")
+            }
         }
     }
     

@@ -55,6 +55,7 @@ extension PopularViewController: UICollectionViewDataSource {
         cell.isFavorite = gifsArray[indexPath.row].isFavorite
         cell.gifImageViewUrl = downsizedImage?.url
         cell.delegate = viewModel
+        cell.reloadDelegate = self
         
         return cell
     }
@@ -79,3 +80,10 @@ extension PopularViewController: UITextFieldDelegate {
         return true
     }
 }
+
+extension PopularViewController: GifCellReloadable {
+    func reloadGifsCollectionView() {
+        gifsCollectionView.reloadData()
+    }
+}
+

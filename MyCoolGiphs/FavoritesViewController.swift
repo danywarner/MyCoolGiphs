@@ -84,7 +84,14 @@ extension FavoritesViewController: UICollectionViewDataSource {
         cell.isFavorite = gifsArray[indexPath.row].isFavorite
         cell.gifImageViewUrl = downsizedImage?.url
         cell.delegate = viewModel
+        cell.reloadDelegate = self
         
         return cell
+    }
+}
+
+extension FavoritesViewController: GifCellReloadable {
+    func reloadGifsCollectionView() {
+        favoritesCollectionView.reloadData()
     }
 }

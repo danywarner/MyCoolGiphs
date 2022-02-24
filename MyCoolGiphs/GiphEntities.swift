@@ -32,7 +32,7 @@ struct GiphImageContainer: Codable {
     }
 }
 
-struct GiphEntity: Codable {
+class GiphEntity: Codable {
     var id: String
     var title: String
     var images: GiphImageContainer
@@ -45,7 +45,7 @@ struct GiphEntity: Codable {
         case isFavorite
     }
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(String.self, forKey: .id)
         title = try container.decode(String.self, forKey: .title)
