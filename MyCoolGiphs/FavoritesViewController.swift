@@ -34,7 +34,7 @@ final class FavoritesViewController: UIViewController {
         return collectionFlowLayout
     }()
     
-    private var viewModel: ViewModel = ViewModel()
+    private var viewModel: ViewModel = ViewModel(model: Model())
     
     override func viewDidLoad() {
         super.viewDidLoad()

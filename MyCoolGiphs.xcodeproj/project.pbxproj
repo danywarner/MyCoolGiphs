@@ -16,6 +16,10 @@
 		1714779F27C3FE2600BC2AA9 /* MyCoolGiphsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714779E27C3FE2600BC2AA9 /* MyCoolGiphsTests.swift */; };
 		171477A927C3FE2600BC2AA9 /* MyCoolGiphsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171477A827C3FE2600BC2AA9 /* MyCoolGiphsUITests.swift */; };
 		171477AB27C3FE2600BC2AA9 /* MyCoolGiphsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171477AA27C3FE2600BC2AA9 /* MyCoolGiphsUITestsLaunchTests.swift */; };
+		172BA0BE27C823DB00FDBEAA /* popularGifs.json in Resources */ = {isa = PBXBuildFile; fileRef = 172BA0BD27C823DB00FDBEAA /* popularGifs.json */; };
+		172BA0C027C8287B00FDBEAA /* searchedGifs.json in Resources */ = {isa = PBXBuildFile; fileRef = 172BA0BF27C8287B00FDBEAA /* searchedGifs.json */; };
+		172BA0C227C82BF900FDBEAA /* ModelStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BA0C127C82BF900FDBEAA /* ModelStub.swift */; };
+		172BA0C427C82D2C00FDBEAA /* GiphModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172BA0C327C82D2C00FDBEAA /* GiphModelProtocol.swift */; };
 		1732030227C40D7900FA569A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732030127C40D7900FA569A /* ViewModel.swift */; };
 		1732030427C40DDF00FA569A /* GiphEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732030327C40DDF00FA569A /* GiphEntities.swift */; };
 		1732030627C40DF000FA569A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732030527C40DF000FA569A /* Model.swift */; };
@@ -59,6 +63,10 @@
 		171477A427C3FE2600BC2AA9 /* MyCoolGiphsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCoolGiphsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		171477A827C3FE2600BC2AA9 /* MyCoolGiphsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoolGiphsUITests.swift; sourceTree = "<group>"; };
 		171477AA27C3FE2600BC2AA9 /* MyCoolGiphsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoolGiphsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		172BA0BD27C823DB00FDBEAA /* popularGifs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = popularGifs.json; sourceTree = "<group>"; };
+		172BA0BF27C8287B00FDBEAA /* searchedGifs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchedGifs.json; sourceTree = "<group>"; };
+		172BA0C127C82BF900FDBEAA /* ModelStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStub.swift; sourceTree = "<group>"; };
+		172BA0C327C82D2C00FDBEAA /* GiphModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphModelProtocol.swift; sourceTree = "<group>"; };
 		1732030127C40D7900FA569A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1732030327C40DDF00FA569A /* GiphEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphEntities.swift; sourceTree = "<group>"; };
 		1732030527C40DF000FA569A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -144,6 +152,7 @@
 				1732030727C4B00600FA569A /* LargeGifCell.swift */,
 				1732030827C4B00600FA569A /* LargeGifCell.xib */,
 				173E6D9127C6CB8C00755A48 /* FavoritesViewController.swift */,
+				172BA0C327C82D2C00FDBEAA /* GiphModelProtocol.swift */,
 			);
 			path = MyCoolGiphs;
 			sourceTree = "<group>";
@@ -152,6 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				1714779E27C3FE2600BC2AA9 /* MyCoolGiphsTests.swift */,
+				172BA0BD27C823DB00FDBEAA /* popularGifs.json */,
+				172BA0BF27C8287B00FDBEAA /* searchedGifs.json */,
+				172BA0C127C82BF900FDBEAA /* ModelStub.swift */,
 			);
 			path = MyCoolGiphsTests;
 			sourceTree = "<group>";
@@ -308,6 +320,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172BA0BE27C823DB00FDBEAA /* popularGifs.json in Resources */,
+				172BA0C027C8287B00FDBEAA /* searchedGifs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +449,7 @@
 				1732030627C40DF000FA569A /* Model.swift in Sources */,
 				1732030927C4B00600FA569A /* LargeGifCell.swift in Sources */,
 				1714778A27C3FE2400BC2AA9 /* SceneDelegate.swift in Sources */,
+				172BA0C427C82D2C00FDBEAA /* GiphModelProtocol.swift in Sources */,
 				1732030427C40DDF00FA569A /* GiphEntities.swift in Sources */,
 				173E6D9027C4C7F900755A48 /* StorageManager.swift in Sources */,
 			);
@@ -445,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1714779F27C3FE2600BC2AA9 /* MyCoolGiphsTests.swift in Sources */,
+				172BA0C227C82BF900FDBEAA /* ModelStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

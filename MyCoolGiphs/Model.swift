@@ -7,7 +7,7 @@
 
 import Alamofire
 
-final class Model {
+final class Model: GiphModelProtocol {
     
     private var storageManager = StorageManager()
     private var giphArray: [GiphEntity] = []
@@ -70,6 +70,7 @@ extension Model {
         gif.isFavorite.toggle()
         
         if gif.isFavorite {
+            favoritesGiphArray.append(gif)
             storageManager.writeToStorage(identifier: gif.id, object: gif, completion: completion)
         } else {
             favoritesGiphArray.removeAll { $0.id == gif.id }

@@ -13,7 +13,7 @@ final class PopularViewController: UIViewController {
     @IBOutlet private weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var gifsCollectionView: UICollectionView!
     
-    private var viewModel: ViewModel = ViewModel()
+    private var viewModel: ViewModel = ViewModel(model: Model())
     
     override func viewDidLoad() {
         super.viewDidLoad()

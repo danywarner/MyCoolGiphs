@@ -8,7 +8,12 @@
 import Foundation
 
 class ViewModel {
-    var model = Model()
+    
+    var model: GiphModelProtocol
+    
+    init(model: GiphModelProtocol) {
+        self.model = model
+    }
     
     var numberOfPopularGifs: Int {
         model.numberOfPopularGifs

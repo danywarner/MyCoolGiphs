@@ -10,27 +10,40 @@ import XCTest
 
 class MyCoolGiphsTests: XCTestCase {
 
+    var viewModel: ViewModel!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        viewModel = ViewModel(model: ModelStub())
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testMapPopularGifs() {
+        viewModel.fetchPopularGifs { }
+        XCTAssert(self.viewModel.numberOfPopularGifs == 5)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testMapSearchedGifs() {
+        viewModel.searchGifs(with: "any keyword") { }
+        XCTAssert(self.viewModel.numberOfPopularGifs == 3)
     }
-
+    
+    func testMarkFavorite() {
+        viewModel.fetchPopularGifs { }
+        viewModel.toggleFavorite(gifID: "m2fQwSWHsfl26rnSDB") { }
+        let favoriteGifs = viewModel.getFavoriteGifsArray()
+        XCTAssert(favoriteGifs.count == 1)
+        XCTAssert(favoriteGifs.contains { $0.id == "m2fQwSWHsfl26rnSDB"})
+    }
+    
+    func testUnMarkFavorite() {
+        viewModel.fetchPopularGifs { }
+        viewModel.toggleFavorite(gifID: "m2fQwSWHsfl26rnSDB") { }
+        viewModel.toggleFavorite(gifID: "m2fQwSWHsfl26rnSDB") { }
+        let favoriteGifs = viewModel.getFavoriteGifsArray()
+        XCTAssert(favoriteGifs.isEmpty)
+    }
 }
