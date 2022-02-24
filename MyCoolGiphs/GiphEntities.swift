@@ -42,6 +42,7 @@ struct GiphEntity: Codable {
         case id
         case title
         case images
+        case isFavorite
     }
     
     init(from decoder: Decoder) throws {
@@ -49,8 +50,7 @@ struct GiphEntity: Codable {
         id = try container.decode(String.self, forKey: .id)
         title = try container.decode(String.self, forKey: .title)
         images = try container.decode(GiphImageContainer.self, forKey: .images)
-        isFavorite = false
-        
+        isFavorite = try container.decodeIfPresent(Bool.self, forKey: .isFavorite) ?? false
     }
 }
 

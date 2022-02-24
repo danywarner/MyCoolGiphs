@@ -19,7 +19,7 @@ final class StorageManager {
         return docURL.appendingPathComponent(key);
     }
     
-    func writeToStorage(identifier: String, object: GiphEntity) -> Void {
+    func writeToStorage(identifier: String, object: GiphEntity) {
         guard let path = filePath(forKey: identifier) else {
             return
         }
@@ -31,6 +31,18 @@ final class StorageManager {
             } catch {
                 print("ERROR writing")
             }
+        }
+    }
+    
+    func deleteFavoriteFromStorage(identifier: String) {
+        guard let path = filePath(forKey: identifier) else {
+            return
+        }
+        
+        do {
+            try filemanager.removeItem(at: path)
+        } catch {
+            print("ERROR deleting favorite")
         }
     }
     

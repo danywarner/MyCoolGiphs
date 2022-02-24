@@ -63,7 +63,7 @@ final class Model {
 
 extension Model {
     func toggleFavorite(gifID: String) {
-        guard var gif = giphArray.first(where: { $0.id == gifID }) else {
+        guard var gif = giphArray.first(where: { $0.id == gifID }) ?? favoritesGiphArray.first(where: { $0.id == gifID }) else {
             print("ERROR: gif id not found")
             return
         }
@@ -71,6 +71,8 @@ extension Model {
         
         if gif.isFavorite {
             storageManager.writeToStorage(identifier: gif.id, object: gif)
+        } else {
+            storageManager.deleteFavoriteFromStorage(identifier: gif.id)
         }
     }
 }

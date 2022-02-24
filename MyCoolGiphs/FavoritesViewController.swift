@@ -20,6 +20,11 @@ final class FavoritesViewController: UIViewController {
         loadFavoriteGifs()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadFavoriteGifs()
+    }
+    
     private func setupCollectionView() {
         favoritesCollectionView.register(UINib(nibName: "LargeGifCell", bundle: nil), forCellWithReuseIdentifier: "LargeGifCell")
         favoritesCollectionView.dataSource = self
@@ -46,7 +51,7 @@ extension FavoritesViewController: UICollectionViewDataSource {
         cell.gifImageID = gifsArray[indexPath.row].id
         cell.isFavorite = gifsArray[indexPath.row].isFavorite
         cell.gifImageViewUrl = downsizedImage?.url
-//        cell.delegate = viewModel
+        cell.delegate = viewModel
         
         return cell
     }
