@@ -22,6 +22,9 @@
                                     <segment title="Grid"/>
                                     <segment title="List"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSegmentedControlSwitch:" destination="PFF-dk-LQg" eventType="valueChanged" id="VPa-MS-e2b"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QeY-zY-pIl">
                                 <rect key="frame" x="0.0" y="75" width="414" height="738"/>
