@@ -7,7 +7,8 @@
 
 import Foundation
 
-class ViewModel {
+//NOTE: I could have used a different ViewModel for each ViewController, but for sake of time I'd rather create just one class, but this should not be done because the Single ViewModel could become giant
+final class ViewModel {
     
     var model: GiphModelProtocol
     

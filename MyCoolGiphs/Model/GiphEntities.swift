@@ -7,6 +7,8 @@
 
 import Foundation
 
+//NOTE: I should create a single file for each entity, but for sake of time, I put them all in this same file
+
 struct GiphImage: Codable {
     var width: String
     var height: String

@@ -5,6 +5,8 @@
 //  Created by daniel.warner on 22/02/22.
 //
 
+import UIKit
+
 protocol GifCellDelegate: AnyObject {
     func toggleFavorite(gifID: String, completion: @escaping () -> ())
 }
@@ -12,8 +14,6 @@ protocol GifCellDelegate: AnyObject {
 protocol GifCellReloadable: AnyObject {
     func reloadGifsCollectionView()
 }
-
-import UIKit
 
 final class LargeGifCell: UICollectionViewCell {
 

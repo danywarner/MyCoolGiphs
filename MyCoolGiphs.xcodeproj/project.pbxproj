@@ -138,21 +138,15 @@
 		1714778627C3FE2400BC2AA9 /* MyCoolGiphs */ = {
 			isa = PBXGroup;
 			children = (
+				172BA0C827C82DA500FDBEAA /* Artifacts */,
+				172BA0C727C82D9800FDBEAA /* ViewModel */,
+				172BA0C627C82D7900FDBEAA /* View */,
+				172BA0C527C82D6900FDBEAA /* Model */,
 				1714778727C3FE2400BC2AA9 /* AppDelegate.swift */,
-				1714778927C3FE2400BC2AA9 /* SceneDelegate.swift */,
-				1714778B27C3FE2400BC2AA9 /* PopularViewController.swift */,
-				1714778D27C3FE2400BC2AA9 /* Main.storyboard */,
 				1714779027C3FE2600BC2AA9 /* Assets.xcassets */,
 				1714779227C3FE2600BC2AA9 /* LaunchScreen.storyboard */,
 				1714779527C3FE2600BC2AA9 /* Info.plist */,
-				1732030127C40D7900FA569A /* ViewModel.swift */,
-				1732030327C40DDF00FA569A /* GiphEntities.swift */,
-				173E6D8F27C4C7F900755A48 /* StorageManager.swift */,
-				1732030527C40DF000FA569A /* Model.swift */,
-				1732030727C4B00600FA569A /* LargeGifCell.swift */,
-				1732030827C4B00600FA569A /* LargeGifCell.xib */,
-				173E6D9127C6CB8C00755A48 /* FavoritesViewController.swift */,
-				172BA0C327C82D2C00FDBEAA /* GiphModelProtocol.swift */,
+				1714778927C3FE2400BC2AA9 /* SceneDelegate.swift */,
 			);
 			path = MyCoolGiphs;
 			sourceTree = "<group>";
@@ -175,6 +169,44 @@
 				171477AA27C3FE2600BC2AA9 /* MyCoolGiphsUITestsLaunchTests.swift */,
 			);
 			path = MyCoolGiphsUITests;
+			sourceTree = "<group>";
+		};
+		172BA0C527C82D6900FDBEAA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				173E6D8F27C4C7F900755A48 /* StorageManager.swift */,
+				1732030327C40DDF00FA569A /* GiphEntities.swift */,
+				1732030527C40DF000FA569A /* Model.swift */,
+				172BA0C327C82D2C00FDBEAA /* GiphModelProtocol.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		172BA0C627C82D7900FDBEAA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1714778B27C3FE2400BC2AA9 /* PopularViewController.swift */,
+				1714778D27C3FE2400BC2AA9 /* Main.storyboard */,
+				1732030727C4B00600FA569A /* LargeGifCell.swift */,
+				1732030827C4B00600FA569A /* LargeGifCell.xib */,
+				173E6D9127C6CB8C00755A48 /* FavoritesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		172BA0C727C82D9800FDBEAA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1732030127C40D7900FA569A /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		172BA0C827C82DA500FDBEAA /* Artifacts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Artifacts;
 			sourceTree = "<group>";
 		};
 		6CE91EAF438D2D589145B47D /* Frameworks */ = {
